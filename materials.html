@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Browse Materials — INTERACT CCI Methods Bank</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<nav class="navbar">
+  <div class="navbar-left">
+    <span class="logo-text">INTERACT CCI Methods Bank</span>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="materials.html" class="nav-link active">Browse Materials</a>
+      <a href="projects.html" class="nav-link">Projects</a>
+      <a href="about.html" class="nav-link">About</a>
+    </div>
+  </div>
+  <div class="nav-right">
+    <div class="search-wrap"><input class="search-box" type="text" placeholder="Search Materials" id="searchInput" oninput="runFilter()"></div>
+    <span class="lang-toggle">EN | FI</span>
+  </div>
+</nav>
+
+<div class="browse-layout">
+  <!-- FILTER PANEL -->
+  <div class="filter-panel">
+    <div class="filter-top">
+      <span class="filter-title">Filters</span>
+      <span class="filter-clear" onclick="clearAll()">Clear all</span>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Project</div>
+      <div class="filter-option"><input type="checkbox" id="fMAD" value="MAD" onchange="runFilter()"><label for="fMAD">MAD</label></div>
+      <div class="filter-option"><input type="checkbox" id="fTakeover" value="Takeover" onchange="runFilter()"><label for="fTakeover">Takeover</label></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Process</div>
+      <div class="filter-option"><input type="checkbox" id="fProcMAD" value="MAD Process" onchange="runFilter()"><label for="fProcMAD">MAD Process</label></div>
+      <div class="filter-option"><input type="checkbox" id="fProcTake" value="Takeover Process" onchange="runFilter()"><label for="fProcTake">Takeover Process</label></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Phase</div>
+      <div class="filter-option"><input type="checkbox" id="fP1" value="1" onchange="runFilter()"><label for="fP1">Phase 1</label></div>
+      <div class="filter-option"><input type="checkbox" id="fP2" value="2" onchange="runFilter()"><label for="fP2">Phase 2</label></div>
+      <div class="filter-option"><input type="checkbox" id="fP3" value="3" onchange="runFilter()"><label for="fP3">Phase 3</label></div>
+      <div class="filter-option"><input type="checkbox" id="fP4" value="4" onchange="runFilter()"><label for="fP4">Phase 4</label></div>
+      <div class="filter-option"><input type="checkbox" id="fP5" value="5" onchange="runFilter()"><label for="fP5">Phase 5 +</label></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">User Group</div>
+      <div class="filter-option"><input type="checkbox" id="fTeacher" value="Teacher" onchange="runFilter()"><label for="fTeacher">Teacher</label></div>
+      <div class="filter-option"><input type="checkbox" id="fResearcher" value="Researcher" onchange="runFilter()"><label for="fResearcher">Researcher</label></div>
+      <div class="filter-option"><input type="checkbox" id="fOthers" value="Others" onchange="runFilter()"><label for="fOthers">Others</label></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Age Group</div>
+      <div class="filter-option"><input type="checkbox" id="f79" value="7-9" onchange="runFilter()"><label for="f79">7–9 years</label></div>
+      <div class="filter-option"><input type="checkbox" id="f1012" value="10-12" onchange="runFilter()"><label for="f1012">10–12 years</label></div>
+      <div class="filter-option"><input type="checkbox" id="f1315" value="13-15" onchange="runFilter()"><label for="f1315">13–15 years</label></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Time Required</div>
+      <div class="filter-option"><input type="checkbox" id="f30" value="30" onchange="runFilter()"><label for="f30">30 minutes</label></div>
+      <div class="filter-option"><input type="checkbox" id="f45" value="45" onchange="runFilter()"><label for="f45">45 minutes</label></div>
+      <div class="filter-option"><input type="checkbox" id="f90" value="90" onchange="runFilter()"><label for="f90">1.5 hours (2 lessons)</label></div>
+      <div class="filter-option"><input type="checkbox" id="fMulti" value="multi" onchange="runFilter()"><label for="fMulti">Multiple sessions</label></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Language</div>
+      <div class="filter-option"><input type="checkbox" id="fEN" value="en" onchange="runFilter()"><label for="fEN">English</label></div>
+      <div class="filter-option"><input type="checkbox" id="fFI" value="fi" onchange="runFilter()"><label for="fFI">Finnish</label></div>
+    </div>
+    <div class="filter-group">
+      <div class="filter-group-title">Material Type</div>
+      <div class="filter-option"><input type="checkbox" id="fPDF" value="pdf" onchange="runFilter()"><label for="fPDF">PDF worksheet</label></div>
+      <div class="filter-option"><input type="checkbox" id="fPres" value="pres" onchange="runFilter()"><label for="fPres">Presentation</label></div>
+      <div class="filter-option"><input type="checkbox" id="fGuide" value="guide" onchange="runFilter()"><label for="fGuide">Teacher guide</label></div>
+      <div class="filter-option"><input type="checkbox" id="fVideo" value="video" onchange="runFilter()"><label for="fVideo">Video / App / GitHub</label></div>
+    </div>
+  </div>
+
+  <!-- RESULTS AREA -->
+  <div class="results-area">
+    <div class="results-top-bar">
+      <span class="results-count-bar" id="resultsCount">Showing 6 of 6 materials</span>
+      <button class="download-selected-btn" id="dlBtn" onclick="downloadSelected()">⬇ Download selected</button>
+    </div>
+
+    <div class="phase-group">
+      <div class="phase-group-label">MAD process — phase 1 · sensitizing with technology</div>
+      <div class="cards-grid">
+        <div class="browse-card" data-project="MAD" data-phase="1" data-time="30" data-type="pdf" data-lang="en fi">
+          <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
+          <div class="browse-card-img">📷 Photo coming soon</div>
+          <div class="browse-card-body">
+            <div class="browse-card-top"><span class="badge badge-phase">Phase 1</span><span class="badge badge-mad">MAD</span></div>
+            <div class="browse-card-title">Technology friendship book</div>
+            <div class="browse-card-meta"><span>⏱ 30 min</span><span>📄 PDF</span></div>
+            <a href="detail.html" class="view-link">View details →</a>
+          </div>
+        </div>
+        <div class="browse-card" data-project="MAD" data-phase="1" data-time="45" data-type="pdf" data-lang="en fi">
+          <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
+          <div class="browse-card-img">📷 Photo coming soon</div>
+          <div class="browse-card-body">
+            <div class="browse-card-top"><span class="badge badge-phase">Phase 1</span><span class="badge badge-mad">MAD</span></div>
+            <div class="browse-card-title">Interviewing a close adult</div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span></div>
+            <a href="detail.html" class="view-link">View details →</a>
+          </div>
+        </div>
+        <div class="browse-card" data-project="MAD" data-phase="1" data-time="30" data-type="pres" data-lang="en">
+          <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
+          <div class="browse-card-img">📷 Photo coming soon</div>
+          <div class="browse-card-body">
+            <div class="browse-card-top"><span class="badge badge-phase">Phase 1</span><span class="badge badge-mad">MAD</span></div>
+            <div class="browse-card-title">Sensitizing presentation slides</div>
+            <div class="browse-card-meta"><span>⏱ 30 min</span><span>📊 Slides</span></div>
+            <a href="detail.html" class="view-link">View details →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-group">
+      <div class="phase-group-label">MAD process — phase 3 · ideation</div>
+      <div class="cards-grid">
+        <div class="browse-card" data-project="MAD" data-phase="3" data-time="45" data-type="pdf" data-lang="en fi">
+          <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
+          <div class="browse-card-img">📷 Photo coming soon</div>
+          <div class="browse-card-body">
+            <div class="browse-card-top"><span class="badge badge-phase">Phase 3</span><span class="badge badge-mad">MAD</span></div>
+            <div class="browse-card-title">Miracle method</div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span></div>
+            <a href="detail.html" class="view-link">View details →</a>
+          </div>
+        </div>
+        <div class="browse-card" data-project="MAD" data-phase="3" data-time="45" data-type="video" data-lang="en">
+          <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
+          <div class="browse-card-img">📷 Photo coming soon</div>
+          <div class="browse-card-body">
+            <div class="browse-card-top"><span class="badge badge-phase">Phase 3</span><span class="badge badge-mad">MAD</span></div>
+            <div class="browse-card-title">Design fiction video guide</div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>🎬 Video</span></div>
+            <a href="detail.html" class="view-link">View details →</a>
+          </div>
+        </div>
+        <div class="browse-card" data-project="MAD" data-phase="5" data-time="45" data-type="pdf" data-lang="en fi">
+          <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
+          <div class="browse-card-img">📷 Photo coming soon</div>
+          <div class="browse-card-body">
+            <div class="browse-card-top"><span class="badge badge-phase">Phase 5</span><span class="badge badge-mad">MAD</span></div>
+            <div class="browse-card-title">Prototyping template set</div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span></div>
+            <a href="detail.html" class="view-link">View details →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="footer"><div class="footer-text">INTERACT Research Unit <span class="footer-dot">·</span> University of Oulu</div></footer>
+
+<script>
+const TOTAL = 6;
+function runFilter() {
+  const checked = sel => [...document.querySelectorAll(sel)].filter(c=>c.checked).map(c=>c.value);
+  const proj = checked('[id^="fMAD"],[id^="fTakeover"]').filter(v=>['MAD','Takeover'].includes(v));
+  const phase = checked('[id^="fP"]').filter(v=>['1','2','3','4','5'].includes(v));
+  const time = checked('[id^="f30"],[id^="f45"],[id^="f90"],[id^="fMulti"]');
+  const type = checked('[id^="fPDF"],[id^="fPres"],[id^="fGuide"],[id^="fVideo"]').map(v=>v.toLowerCase());
+  const lang = checked('[id^="fEN"],[id^="fFI"]');
+  const q = document.getElementById('searchInput').value.toLowerCase();
+  const cards = document.querySelectorAll('.browse-card');
+  let n = 0;
+  cards.forEach(c => {
+    const mp = proj.length===0||proj.includes(c.dataset.project);
+    const mph = phase.length===0||phase.includes(c.dataset.phase);
+    const mt = time.length===0||time.includes(c.dataset.time);
+    const mty = type.length===0||type.some(t=>c.dataset.type.includes(t));
+    const ml = lang.length===0||lang.some(l=>c.dataset.lang.includes(l));
+    const mq = q===''||c.innerText.toLowerCase().includes(q);
+    const show = mp&&mph&&mt&&mty&&ml&&mq;
+    c.style.display = show?'':'none';
+    if(show) n++;
+  });
+  document.getElementById('resultsCount').textContent=`Showing ${n} of ${TOTAL} materials`;
+}
+function clearAll() {
+  document.querySelectorAll('.filter-panel input').forEach(c=>c.checked=false);
+  document.getElementById('searchInput').value='';
+  runFilter();
+  document.querySelectorAll('.card-checkbox').forEach(c=>{c.checked=false;c.closest('.browse-card').classList.remove('selected');});
+  document.getElementById('dlBtn').classList.remove('visible');
+}
+function updateSelection(cb) {
+  cb.closest('.browse-card').classList.toggle('selected', cb.checked);
+  const any = document.querySelectorAll('.card-checkbox:checked').length > 0;
+  document.getElementById('dlBtn').classList.toggle('visible', any);
+}
+function downloadSelected() {
+  const selected = [...document.querySelectorAll('.card-checkbox:checked')].map(cb=>cb.closest('.browse-card').querySelector('.browse-card-title').textContent);
+  alert('Downloading: ' + selected.join(', ') + '\n\n(In the real website, the download tracking form will appear here.)');
+}
+</script>
+</body>
+</html>
