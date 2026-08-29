@@ -30,16 +30,25 @@
       <span class="filter-title">Filters</span>
       <span class="filter-clear" onclick="clearAll()">Clear all</span>
     </div>
+
+    <!-- OPEN TOPIC / THEME SEARCH -->
+    <div class="filter-group">
+      <div class="filter-group-title">Search by topic or theme</div>
+      <input type="text" id="topicSearch" class="topic-search-input" placeholder="e.g. bullying, AI, coding..." oninput="runFilter()">
+    </div>
+
     <div class="filter-group">
       <div class="filter-group-title">Project</div>
       <div class="filter-option"><input type="checkbox" id="fMAD" value="MAD" onchange="runFilter()"><label for="fMAD">MAD</label></div>
       <div class="filter-option"><input type="checkbox" id="fTakeover" value="Takeover" onchange="runFilter()"><label for="fTakeover">Takeover</label></div>
     </div>
+
     <div class="filter-group">
       <div class="filter-group-title">Process</div>
       <div class="filter-option"><input type="checkbox" id="fProcMAD" value="MAD Process" onchange="runFilter()"><label for="fProcMAD">MAD Process</label></div>
       <div class="filter-option"><input type="checkbox" id="fProcTake" value="Takeover Process" onchange="runFilter()"><label for="fProcTake">Takeover Process</label></div>
     </div>
+
     <div class="filter-group">
       <div class="filter-group-title">Phase</div>
       <div class="filter-option"><input type="checkbox" id="fP1" value="1" onchange="runFilter()"><label for="fP1">Phase 1</label></div>
@@ -48,18 +57,21 @@
       <div class="filter-option"><input type="checkbox" id="fP4" value="4" onchange="runFilter()"><label for="fP4">Phase 4</label></div>
       <div class="filter-option"><input type="checkbox" id="fP5" value="5" onchange="runFilter()"><label for="fP5">Phase 5 +</label></div>
     </div>
+
     <div class="filter-group">
       <div class="filter-group-title">User Group</div>
       <div class="filter-option"><input type="checkbox" id="fTeacher" value="Teacher" onchange="runFilter()"><label for="fTeacher">Teacher</label></div>
       <div class="filter-option"><input type="checkbox" id="fResearcher" value="Researcher" onchange="runFilter()"><label for="fResearcher">Researcher</label></div>
       <div class="filter-option"><input type="checkbox" id="fOthers" value="Others" onchange="runFilter()"><label for="fOthers">Others</label></div>
     </div>
+
     <div class="filter-group">
       <div class="filter-group-title">Age Group</div>
       <div class="filter-option"><input type="checkbox" id="f79" value="7-9" onchange="runFilter()"><label for="f79">7–9 years</label></div>
       <div class="filter-option"><input type="checkbox" id="f1012" value="10-12" onchange="runFilter()"><label for="f1012">10–12 years</label></div>
       <div class="filter-option"><input type="checkbox" id="f1315" value="13-15" onchange="runFilter()"><label for="f1315">13–15 years</label></div>
     </div>
+
     <div class="filter-group">
       <div class="filter-group-title">Time Required</div>
       <div class="filter-option"><input type="checkbox" id="f30" value="30" onchange="runFilter()"><label for="f30">30 minutes</label></div>
@@ -67,11 +79,21 @@
       <div class="filter-option"><input type="checkbox" id="f90" value="90" onchange="runFilter()"><label for="f90">1.5 hours (2 lessons)</label></div>
       <div class="filter-option"><input type="checkbox" id="fMulti" value="multi" onchange="runFilter()"><label for="fMulti">Multiple sessions</label></div>
     </div>
+
+    <!-- TASK TYPE — NEW -->
+    <div class="filter-group">
+      <div class="filter-group-title">Task type</div>
+      <div class="filter-option"><input type="checkbox" id="fIndividual" value="individual" onchange="runFilter()"><label for="fIndividual">Individual</label></div>
+      <div class="filter-option"><input type="checkbox" id="fPair" value="pair" onchange="runFilter()"><label for="fPair">Pair</label></div>
+      <div class="filter-option"><input type="checkbox" id="fGroup" value="group" onchange="runFilter()"><label for="fGroup">Group</label></div>
+    </div>
+
     <div class="filter-group">
       <div class="filter-group-title">Language</div>
       <div class="filter-option"><input type="checkbox" id="fEN" value="en" onchange="runFilter()"><label for="fEN">English</label></div>
       <div class="filter-option"><input type="checkbox" id="fFI" value="fi" onchange="runFilter()"><label for="fFI">Finnish</label></div>
     </div>
+
     <div class="filter-group">
       <div class="filter-group-title">Material Type</div>
       <div class="filter-option"><input type="checkbox" id="fPDF" value="pdf" onchange="runFilter()"><label for="fPDF">PDF worksheet</label></div>
@@ -91,72 +113,80 @@
     <div class="phase-group">
       <div class="phase-group-label">MAD process — phase 1 · sensitizing with technology</div>
       <div class="cards-grid">
-        <div class="browse-card" data-project="MAD" data-phase="1" data-time="30" data-type="pdf" data-lang="en fi">
+
+        <div class="browse-card" data-project="MAD" data-phase="1" data-time="30" data-type="pdf" data-lang="en fi" data-tasktype="individual" data-topics="technology friendship sensitizing bullying">
           <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
           <div class="browse-card-img">📷 Photo coming soon</div>
           <div class="browse-card-body">
             <div class="browse-card-top"><span class="badge badge-phase">Phase 1</span><span class="badge badge-mad">MAD</span></div>
             <div class="browse-card-title">Technology friendship book</div>
-            <div class="browse-card-meta"><span>⏱ 30 min</span><span>📄 PDF</span></div>
+            <div class="browse-card-meta"><span>⏱ 30 min</span><span>📄 PDF</span><span>👤 Individual</span></div>
             <a href="detail.html" class="view-link">View details →</a>
           </div>
         </div>
-        <div class="browse-card" data-project="MAD" data-phase="1" data-time="45" data-type="pdf" data-lang="en fi">
+
+        <div class="browse-card" data-project="MAD" data-phase="1" data-time="45" data-type="pdf" data-lang="en fi" data-tasktype="pair" data-topics="technology interview sensitizing adult">
           <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
           <div class="browse-card-img">📷 Photo coming soon</div>
           <div class="browse-card-body">
             <div class="browse-card-top"><span class="badge badge-phase">Phase 1</span><span class="badge badge-mad">MAD</span></div>
             <div class="browse-card-title">Interviewing a close adult</div>
-            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span></div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span><span>👥 Pair</span></div>
             <a href="detail.html" class="view-link">View details →</a>
           </div>
         </div>
-        <div class="browse-card" data-project="MAD" data-phase="1" data-time="30" data-type="pres" data-lang="en">
+
+        <div class="browse-card" data-project="MAD" data-phase="1" data-time="30" data-type="pres" data-lang="en" data-tasktype="group" data-topics="technology sensitizing class presentation">
           <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
           <div class="browse-card-img">📷 Photo coming soon</div>
           <div class="browse-card-body">
             <div class="browse-card-top"><span class="badge badge-phase">Phase 1</span><span class="badge badge-mad">MAD</span></div>
             <div class="browse-card-title">Sensitizing presentation slides</div>
-            <div class="browse-card-meta"><span>⏱ 30 min</span><span>📊 Slides</span></div>
+            <div class="browse-card-meta"><span>⏱ 30 min</span><span>📊 Slides</span><span>👥 Group</span></div>
             <a href="detail.html" class="view-link">View details →</a>
           </div>
         </div>
+
       </div>
     </div>
 
     <div class="phase-group">
       <div class="phase-group-label">MAD process — phase 3 · ideation</div>
       <div class="cards-grid">
-        <div class="browse-card" data-project="MAD" data-phase="3" data-time="45" data-type="pdf" data-lang="en fi">
+
+        <div class="browse-card" data-project="MAD" data-phase="3" data-time="45" data-type="pdf" data-lang="en fi" data-tasktype="group" data-topics="ideation brainstorming bullying miracle method design">
           <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
           <div class="browse-card-img">📷 Photo coming soon</div>
           <div class="browse-card-body">
             <div class="browse-card-top"><span class="badge badge-phase">Phase 3</span><span class="badge badge-mad">MAD</span></div>
             <div class="browse-card-title">Miracle method</div>
-            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span></div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span><span>👥 Group</span></div>
             <a href="detail.html" class="view-link">View details →</a>
           </div>
         </div>
-        <div class="browse-card" data-project="MAD" data-phase="3" data-time="45" data-type="video" data-lang="en">
+
+        <div class="browse-card" data-project="MAD" data-phase="3" data-time="45" data-type="video" data-lang="en" data-tasktype="group" data-topics="design fiction video ideation bullying">
           <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
           <div class="browse-card-img">📷 Photo coming soon</div>
           <div class="browse-card-body">
             <div class="browse-card-top"><span class="badge badge-phase">Phase 3</span><span class="badge badge-mad">MAD</span></div>
             <div class="browse-card-title">Design fiction video guide</div>
-            <div class="browse-card-meta"><span>⏱ 45 min</span><span>🎬 Video</span></div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>🎬 Video</span><span>👥 Group</span></div>
             <a href="detail.html" class="view-link">View details →</a>
           </div>
         </div>
-        <div class="browse-card" data-project="MAD" data-phase="5" data-time="45" data-type="pdf" data-lang="en fi">
+
+        <div class="browse-card" data-project="MAD" data-phase="5" data-time="45" data-type="pdf" data-lang="en fi" data-tasktype="group" data-topics="prototyping design making cardboard template">
           <div class="card-select-wrap"><input type="checkbox" class="card-checkbox" onchange="updateSelection(this)"></div>
           <div class="browse-card-img">📷 Photo coming soon</div>
           <div class="browse-card-body">
             <div class="browse-card-top"><span class="badge badge-phase">Phase 5</span><span class="badge badge-mad">MAD</span></div>
             <div class="browse-card-title">Prototyping template set</div>
-            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span></div>
+            <div class="browse-card-meta"><span>⏱ 45 min</span><span>📄 PDF</span><span>👥 Group</span></div>
             <a href="detail.html" class="view-link">View details →</a>
           </div>
         </div>
+
       </div>
     </div>
   </div>
@@ -173,7 +203,9 @@ function runFilter() {
   const time = checked('[id^="f30"],[id^="f45"],[id^="f90"],[id^="fMulti"]');
   const type = checked('[id^="fPDF"],[id^="fPres"],[id^="fGuide"],[id^="fVideo"]').map(v=>v.toLowerCase());
   const lang = checked('[id^="fEN"],[id^="fFI"]');
+  const tasktype = checked('[id^="fIndividual"],[id^="fPair"],[id^="fGroup"]');
   const q = document.getElementById('searchInput').value.toLowerCase();
+  const topicQ = document.getElementById('topicSearch').value.toLowerCase();
   const cards = document.querySelectorAll('.browse-card');
   let n = 0;
   cards.forEach(c => {
@@ -182,16 +214,19 @@ function runFilter() {
     const mt = time.length===0||time.includes(c.dataset.time);
     const mty = type.length===0||type.some(t=>c.dataset.type.includes(t));
     const ml = lang.length===0||lang.some(l=>c.dataset.lang.includes(l));
+    const mtt = tasktype.length===0||tasktype.some(t=>c.dataset.tasktype.includes(t));
     const mq = q===''||c.innerText.toLowerCase().includes(q);
-    const show = mp&&mph&&mt&&mty&&ml&&mq;
+    const mtopic = topicQ===''||(c.dataset.topics||'').toLowerCase().includes(topicQ)||c.innerText.toLowerCase().includes(topicQ);
+    const show = mp&&mph&&mt&&mty&&ml&&mtt&&mq&&mtopic;
     c.style.display = show?'':'none';
     if(show) n++;
   });
   document.getElementById('resultsCount').textContent=`Showing ${n} of ${TOTAL} materials`;
 }
 function clearAll() {
-  document.querySelectorAll('.filter-panel input').forEach(c=>c.checked=false);
+  document.querySelectorAll('.filter-panel input[type=checkbox]').forEach(c=>c.checked=false);
   document.getElementById('searchInput').value='';
+  document.getElementById('topicSearch').value='';
   runFilter();
   document.querySelectorAll('.card-checkbox').forEach(c=>{c.checked=false;c.closest('.browse-card').classList.remove('selected');});
   document.getElementById('dlBtn').classList.remove('visible');
@@ -206,5 +241,15 @@ function downloadSelected() {
   alert('Downloading: ' + selected.join(', ') + '\n\n(In the real website, the download tracking form will appear here.)');
 }
 </script>
+
+<style>
+.topic-search-input {
+  width: 100%; border: 1px solid #d0d0d0; border-radius: 6px;
+  padding: 7px 10px; font-size: 12px; color: #333; outline: none;
+  margin-top: 2px;
+}
+.topic-search-input:focus { border-color: #3b6bca; }
+.topic-search-input::placeholder { color: #aaa; }
+</style>
 </body>
 </html>
